@@ -1,0 +1,89 @@
+
+.titlebar {
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+  border-color: #1E2A32;
+  display: block;
+  position: fixed;
+  height: 38px;
+  width: 93%;
+  background:  #3D4C53;
+  z-index: -1;
+  font-size: 20px;
+  font-weight: bold;
+  top: -2%;
+}
+
+.NoHighlight{
+
+}
+
+body{
+
+  background-color: #757575;
+	background-image: url("../Media/BgImage1.jpg");
+
+  overflow: hidden;
+}
+
+
+
+input{
+  color: white;
+  background: transparent;
+  font-size: 25px;
+
+    text-align: center;
+    padding: 15px;
+    margin: auto;
+    width:50%;
+
+}
+
+.button {
+  position: fixed;
+  background: #3D4C53;
+  top: -1%;
+  right: -2%;
+  width : 100px;
+  height : 32px;
+  overflow: hidden;
+  text-align : center;
+
+  cursor : pointer;
+
+  -webkit-user-select: none;
+  -webkit-app-region: no-drag;
+
+
+}
+
+.button2{
+  position: fixed;
+  z-index: 0;
+  background-color: #3D4C53;
+  cursor : pointer;
+  top: 4.3%;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -webkit-app-region: no-drag;
+}
+
+#emailCheck{
+  position: fixed;
+  bottom: 250px;
+  right: 200px;
+}
+
+#pwdCheck{
+  position: fixed;
+  bottom: 175px;
+  right: 200px;
+}
+
+#loading{
+  position: fixed;
+  bottom: 175px;
+  right: 350px;
+  width: 110px;
+}

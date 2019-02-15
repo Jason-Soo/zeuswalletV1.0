@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <title>Zeus Wallet</title>
+    <script src = "renderer.js"></script>
+    <link rel = "stylesheet" href = "css\LogIn.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
+  </head>
+
+<body>
+
+  <div class="button" onclick=" window.close()">
+      <img src="Media/Close-btn.svg" width="35px" height="40px">
+    </div>
+
+    <div class="button2" onclick=" window.history.back()">
+        <img src="Media/back-btn.svg" width="55px" height="55px">
+      </div>
+
+<div class ="titlebar">
+
+
+<div class= "NoHighlight"> <!-- no select highlight-->
+
+
+  <div class ="email">
+    <input type="email" id="emailCheck" placeholder="Input Your Email" required onkeypress="EnterKey()" style="color:white">
+  <img id="loading" src="Media/Loading.gif" style="visibility:hidden" >
+<div class ="pwd">
+  <input type="password" id="pwdCheck" placeholder="Input Your Password" required onkeypress="EnterKey()" style="color:white">
+<img id="loading" src="Media/Loading.gif" style="visibility:hidden" >
+</div>
+
+
+
+
+ </div>
+</div>
+  </body>
+
+
+  <script>
+
+  require('./renderer.js');
+  </script>
+</html>

@@ -1,0 +1,148 @@
+body{
+  background-image: url("../Media/Dashboard.jpg");
+  background-color: #757575;
+  width: 100%;
+
+  overflow-x: hidden;
+}
+
+
+
+.button12 {
+  position: fixed;
+  background: #3D4C53;
+  top: -1%;
+  right: -2%;
+  width : 100px;
+  height : 32px;
+  overflow: hidden;
+  text-align : center;
+
+  cursor : pointer;
+
+  -webkit-user-select: none;
+  -webkit-app-region: no-drag;
+
+
+}
+.button22{
+  position: fixed;
+  z-index: 0;
+  background-color: #3D4C53;
+  cursor : pointer;
+  top: 4.3%;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -webkit-app-region: no-drag;
+}
+
+
+/* Button */
+.button1{
+  background:#757575;
+  color:#fff;
+  border:none;
+  position:fixed;
+  bottom: 35%;
+  height:60px;
+  right: 4.5%;
+  font-size:1.6em;
+  padding:0 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+
+}
+
+.popbutton1{
+  visibility: hidden;
+
+}
+
+.popbutton2{
+  visibility: hidden;
+
+}
+
+.poptext{
+  position: fixed;
+  bottom: 17%;
+  color: red;
+  visibility: hidden;
+}
+
+.buttonClose {
+  position: fixed;
+  background: #3D4C53;
+  top: -1%;
+  right: -2%;
+  width : 100px;
+  height : 32px;
+  overflow: hidden;
+  text-align : center;
+
+  cursor : pointer;
+
+  -webkit-user-select: none;
+  -webkit-app-region: no-drag;
+
+
+}
+
+button:hover{
+  background:#fff;
+  color:#1AAB8A;
+}
+button:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #FF0;
+  transition:400ms ease all;
+}
+button:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+button:hover:before,button:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
+.butconfig{
+font-family: sans-serif;
+}
+
+#loading{
+  position: fixed;
+  bottom: 100px;
+  right: 350px;
+  width: 110px;
+}
+
+.titlebar {
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+  border-color: #1E2A32;
+  display: block;
+  position: fixed;
+  height: 38px;
+  width: 93%;
+  background:  #3D4C53;
+  z-index: -1;
+  font-size: 20px;
+  font-weight: bold;
+  top: -2%;
+}
+
+
+.container{
+  position: fixed;
+  bottom: 150px;
+  align-content: center;
+}

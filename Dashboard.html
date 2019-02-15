@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+        <title>Zeus Wallet</title>
+    <script src="js/Dashboard.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="style/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/balloon-css/0.5.0/balloon.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/Dashboard.css">
+
+
+  <script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
+
+</head>
+
+<style>
+input[type=text] {
+  width: 250px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+  width: 100%;
+}
+</style>
+
+<body>
+
+  <div class="buttonClose" onclick=" window.close()">
+      <!-- <p class="btnText">QUIT</p> -->
+      <img src="Media/Close-btn.svg" width="35px" height="40px">
+    </div>
+
+  <div class ="titlebar">
+
+<div class="logout">
+  <img src = "Media\quit.svg" style="width:90px; height:90px;" onclick="logoutjs()"></img>
+  <!-- <i class="far fa-power-off"></i> -->
+</div>
+
+
+</div>
+    <!-- Private key form -->
+        <div class="form-group" id="form-groupID">
+          <label for="pkey" style="color:white; font-size: 25px;" >Private Key:</label>
+          <span data-balloon="Note: Request For A New Address From MyEtherWallet or Any Ethereum Wallet Address" data-balloon-pos="bottom" data-balloon-length="large"><span style="color:yellow; font-size:25px;">?</span>&nbsp;&nbsp;&nbsp;</span>
+          <input type="password" class="form-control" onkeypress="EnterKey()" id="Pkey" placeholder="Enter Private Key" required name="Pkey"> <p class="errorInfo text-info pull-right" id="privatekeyerror">Invalid Ethereum Wallet Private Key</p>
+        </div>
+
+
+
+        <!-- Create new wallet section -->
+        <!-- <button id="myBtn" class="popbtn" style="">Create New Wallet</button> -->
+
+        <!-- The Modal -->
+        <div id="pop" class="pop">
+          <!-- Modal content -->
+          <div class="pop-content">
+            <div class="pop-header">
+              <span class="close">&times;</span>
+              <h2>Generating New Ethereum Wallet</h2>
+            </div>
+            <div class="pop-body">
+              <p id="textGen" style="visibility:visible;">Click On The Button To Generate A New Ethereum Wallet/ERC20 Compatible Wallet Address</p>
+              <button class= "generateWal" id="generateWal"onclick="genWallet()" style="width:200px; height:40px; visibility:visible;">Generate New Wallet</button>
+              <div class="genResult" id="genResult" style="visibility:hidden;">
+                <b>Public Address:</b> <p class="genPub" id="genPub"></p> <br>
+                <b>Private Key:</b> <p class="genPri" id="genPri"></p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Search Charity address verification -->
+        <!-- <button id="myBtn2" class="popbtn2">Verify Charity Address</button> -->
+        <!-- The Modal -->
+        <div id="pop2" class="pop2">
+
+          <!-- Modal content -->
+          <div class="pop-content">
+            <div class="pop-header">
+              <span class="close2">&times;</span>
+              <h2>Verify Charity Address Information</h2>
+            </div>
+
+            <div class="pop-body">
+
+            <div class="orgContent" id="orgContent" style="visibility:hidden;">
+
+              <input type="text" id="checkInput" oninput="checkDB()" placeholder=" Input Ethereum Address Only" title="ETH Address">
+                  <div class="checkList" id="check_list">
+
+                  </div>
+              <!-- whole show list of charity address -->
+              <div class="main-list" id="list_div">
+
+              </div>
+
+              </div>
+
+              <div class="terms" id="terms" style="visibility:visible;">
+              <h1 style="text-align:center;">Terms Of Use</h1>
+              <p>We accept no liability for any loss and
+                We will not be held responsible for any consequences that may result in your volunteered donations.</p>
+
+
+              <button class="agree" style="width:100px; height:30px;" onclick="verOrg()">Agree</button>
+              <button class="disagree" style="width:100px; height:30px;" onclick="alert('You Have To Agree To The Terms In Order To Continue Further')">Disagree</button>
+
+            </div>
+
+
+
+            </div>
+            <div class="pop-footer" style="background-color:#757575;">
+              <p style="text-align:center; color:black;">All Information About The Particular Organization Are Thoroughly Checked
+                By The Company After Receiving Neccessary Information About The Legitimacy Of The Organization</p>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Transaction Logs -->
+        <!-- <button id="myBtn3" class="popbtn3" style="visibility:hidden;">Transaction Logs</button> -->
+        <!-- The Modal -->
+        <div id="pop3" class="pop3">
+          <!-- Modal content -->
+          <div class="pop-content">
+            <div class="pop-header">
+              <span class="close3">&times;</span>
+              <h2>Transaction Logs</h2>
+            </div>
+            <div class="pop-body">
+
+              <webview id="tLogs" src="https://etherscan.io/error" style="width:600px; height:480px"></webview>
+
+
+
+
+
+              </div>
+
+            </div>
+            <div class="pop-footer" style="background-color:#757575">
+              <h3>Transaction Logs Are From Etherscan Block Explorer</h3>
+              For Better View You Click Here<p id="ethBURL"><a href="#" id="ethscanURL" style="color:black" onclick="transLog()">Etherscan.io</a></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Adding new Charity Information -->
+        <!-- <button id="myBtn4" class="popbtn4" style="visibility:hidsden;">Adding New Charity Information</button> -->
+        <!-- The Modal -->
+        <div id="pop4" class="pop4">
+
+          <!-- Modal content -->
+          <div class="pop-content">
+            <div class="pop-header">
+              <span class="close4">&times;</span>
+              <h2>New Charity Organization</h2>
+            </div>
+            <div class="pop-body1">
+
+              <form onsubmit="alert('Data Submitted!');this.reset();return false">
+                Enter Organization Name: <br><input type="text" id="orgName" value=""><br><br>
+                Enter Organization Ethereum Address: <br><input type="text" id="orgEth" value=""><br><br>
+                Enter Organization Location: <br><input type="text" id="orgLocation" value=""><br><br>
+                <button type="submit" class="subBtn" onclick="insertCharityOrg()">Submit</button>&nbsp
+                <button type="reset" class="resBtn">Reset</button>
+              </form>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="dropdown">
+ <button class="dropbtn">Menu</button>
+          <div class="dropdown-content">
+            <button id="myBtn" class="popbtn" style="width:200px; height:40px;">Generate New Wallet</button>
+            <button id="myBtn2" class="popbtn2" style="width:200px; height:40px;">Verify Charity Address</button>
+            <button id="myBtn3" class="popbtn3" onclick="transLog()" style="visibility:hidden; width:200px; height:40px;">Transaction Logs</button>
+            <button id="myBtn4" class="popbtn4" style="visibility:hidden; width:200px; height:40px;">New Charity</button>
+          </div>
+        </div>
+
+
+<!-- Dashboard info -->
+<div class="maindash">
+  <div class="gapSeparation">
+    <div class="row walletInfo hidden">
+
+      <div class="zeusDash">
+        <div class="col-xs-4 col-xs-offset-2 coinBox">
+            <b id="zeusbal" style="color:#757575;">0.00</b><p style="color:white;">ZEUS</p>
+        </div>
+      </div>
+
+      <div class="ethDash">
+        <div class="col-xs-4 coinBox">
+            <b id="ethbal" style="color:#757575;">0.0000</b><p style="color:white;">ETH</p>
+        </div>
+      </div>
+    </div>
+</div>
+    <div id="addressArea" class="row hidden">
+        <span class="myaddress" style="color:#757575;" onclick="CopyAddress();">0x</span>
+    </div>
+
+    <div id="walletActions" class="row hidden">
+
+        <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#zeusmodal" onclick="UpdateTokenFeeETH();">
+            Send Zeus
+          </button>
+
+        <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#ethermodal" onclick="UpdateAvailableETH();">
+            Send Ether
+          </button>
+
+    </div>
+</div>
+
+
+
+<!-- ETH dashboard -->
+    <div class="modal fade" id="ethermodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Send Ethereum</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-groupETH">
+                        <div class="input-group">
+                            <input type="text" id="send_ether_to" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="0x0000000000000000000000000000000000000000">
+                            <span class="input-group-addon">Address</span>
+                        </div>
+                    </div>
+
+                    <div class="form-groupETH">
+                        <div class="input-group">
+                            <input type="text" id="send_ether_amount" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="0.00" onkeyup="CheckETHAvailable();">
+                            <span class="input-group-addon">ETH</span>
+                        </div>
+                        <p class="help-block"><u class="ethspend">0.00</u> ETH Available | Gas Limit: 21000</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                    <div class="btn-group pull-left" role="group">
+                        <button type="button" class="btn-group pull-left">Gas Price: <input id="ethgasprice" type="number" value="21" style="width: 40px; height:30px;" onchange="GetEthGas();" min="5" max="50"> gwei</button>
+                        <button type="button" class="btn-group pull-left">Fee: <input id="ethtxfee" type="number" value="0.00044" readonly style="width: 75px; height: 30px;"  min="5" max="50"> ETH</button>
+                    </div>
+
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" id="sendethbutton" class="btn btn-primary" onclick="SendEthereum();" disabled>Send ETH</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<!-- ZEUS dashboard -->
+    <div class="modal fade" id="zeusmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Send Zeus Token</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-groupZEUS">
+                        <div class="input-group">
+                            <input type="text" id="send_to_token" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="0x0000000000000000000000000000000000000000">
+                            <span class="input-group-addon">Address</span>
+                        </div>
+                    </div>
+
+                    <div class="form-groupZEUS">
+                        <div class="input-group">
+                            <input type="text" id="send_amount_token" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="0.00" onkeyup="CheckTokenAvailable();">
+                            <span class="input-group-addon">Zeus</span>
+                        </div>
+                        <p class="help-block"><u class="zeusSpend">0.00</u> Zeus Available | <u class="ethavailable">0.00</u> ETH Available | Gas Limit: 65000</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                    <div class="btn-group pull-left" role="group">
+                        <button type="button" class="btn-group pull-left">Gas Price: <input id="tokengasprice" type="number" value="21" style="width: 40px; height:30px;" onchange="GetTokenGas();" min="5" max="50"> gwei</button>
+                        <button type="button" class="btn-group pull-left">Fee: <input id="tokentxfee" type="number" value="0.00115" readonly style="width: 75px; height:30px;"> ETH</button>
+                    </div>
+
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" id="sendtokenbutton" class="btn btn-primary" onclick="SendToken();" disabled>Send Zeus</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+<div class="modal fade" id="trxsentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Transaction Sent</h4>
+      </div>
+      <div class="modal-body text-center">
+        You sent <u id="senttxamount"></u> <span id="txtype">ETH</span> to <b id="txtoaddress"></b>
+
+        <p class="txidLink text-primary" onclick="OpenEtherScan()"></p>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+
+<script>
+    if (typeof module === 'object') {
+        window.module = module;
+        module = undefined;
+    }
+
+//pops
+var pop = document.getElementById('pop');
+
+var pop2 = document.getElementById('pop2');
+
+var pop3 = document.getElementById('pop3');
+
+var pop4 = document.getElementById('pop4');
+
+//button
+var btn = document.getElementById("myBtn");
+
+var btn2 = document.getElementById("myBtn2");
+
+var btn3 = document.getElementById("myBtn3");
+
+var btn4 = document.getElementById("myBtn4");
+
+//spans
+var span = document.getElementsByClassName("close")[0];
+
+var span2 = document.getElementsByClassName("close2")[0];
+
+var span3 = document.getElementsByClassName("close3")[0];
+
+var span4 = document.getElementsByClassName("close4")[0];
+
+
+btn.onclick = function() {
+    pop.style.display = "block";
+}
+
+btn2.onclick = function() {
+    pop2.style.display = "block";
+}
+
+btn3.onclick = function() {
+    pop3.style.display = "block";
+}
+
+btn4.onclick = function() {
+    pop4.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    pop.style.display = "none";
+}
+
+span2.onclick = function() {
+    pop2.style.display = "none";
+}
+
+span3.onclick = function() {
+    pop3.style.display = "none";
+}
+
+span4.onclick = function() {
+    pop4.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == pop) {
+        pop.style.display = "none";
+    }
+}
+
+window.onclick = function(event) {
+    if (event.target == pop) {
+        pop2.style.display = "none";
+    }
+}
+
+  require('./renderer.js');
+</script>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+
+
+
+
+</html>

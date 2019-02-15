@@ -1,0 +1,514 @@
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #757575;
+    background-image: url("../Media/Dashboard.jpg");
+    overflow: hidden;
+
+}
+
+.buttonClose {
+  position: fixed;
+  background: #3D4C53;
+  top: -1%;
+  right: -2%;
+  width : 100px;
+  height : 32px;
+  overflow: hidden;
+  text-align : center;
+
+  cursor : pointer;
+
+  -webkit-user-select: none;
+  -webkit-app-region: no-drag;
+
+
+}
+
+.logout{
+  position: fixed;
+  bottom: 80%;
+  right: 0%;
+  cursor: pointer;
+}
+
+.titlebar {
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+  border-color: #1E2A32;
+  display: block;
+  position: fixed;
+  height: 38px;
+  width: 93%;
+  background:  #3D4C53;
+  z-index: -1;
+  font-size: 20px;
+  font-weight: bold;
+  top: -2%;
+}
+
+
+
+.collapsible {
+    background-color: #3D4C53;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    position: fixed;
+    bottom: 517px;
+}
+
+.active, .collapsible:hover {
+      background-color: #757575;
+}
+
+.contentCol {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: hidden;
+    position: fixed;
+    width: 600px;
+    bottom: 468px;
+}
+
+.form-group{
+  position: fixed;
+  right: 100px;
+  bottom: 250px;
+  width: 600px;
+}
+
+
+.errorInfo {
+    margin-top: 5px;
+    display: none;
+}
+
+.maindash{
+  position: fixed;
+  bottom: 30%;
+  right: 10%;
+}
+
+
+
+.txidLink {
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 11pt;
+    font-weight: bold;
+}
+
+.coinBox {
+    text-align: center;
+}
+
+.coinBox B {
+    font-size: 42pt;
+    display: block;
+    font-weight: bold;
+}
+
+.coinBox SMALL {
+    font-size: 23pt;
+    color: #6f6f6f;
+}
+
+.zeusDash{
+  text-align: center;
+  position: fixed;
+  top: 28%;
+  right: 50%;
+}
+
+.ethDash{
+  text-align: center;
+  position: fixed;
+  top: 28%;
+  right: 20%;
+}
+
+.col{
+    -webkit-column-gap: 1140px; /* Chrome, Safari, Opera */
+    -moz-column-gap: 1140px; /* Firefox */
+    column-gap: 1140px;
+}
+
+.myaddress {
+    text-align: center;
+    display: block;
+    font-size: 20pt;
+    margin: 40px 0;-
+    color: #ec2525;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+#walletActions {
+    text-align: center;
+}
+
+
+.modal-content {
+    border-radius: 0;
+    position: fixed;
+
+}
+
+.modal-dialog {
+    margin-top: 25vh;
+}
+
+
+.btn {
+    border-radius: 0;
+}
+
+.right{
+  right: 5%;
+  position: fixed;
+  bottom: 15%;
+
+
+}
+
+button{
+
+}
+button:hover{
+  background:#fff;
+  color:#1AAB8A;
+}
+button:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #1AAB8A;
+  transition:400ms ease all;
+}
+button:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+button:hover:before,button:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
+/* The Modal (background) */
+.pop {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.pop2 {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.pop3 {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.pop4 {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+
+/* Modal Content */
+.pop-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* The Close Button */
+.close2 {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close2:hover,
+.close2:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* The Close Button */
+.close3 {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close3:hover,
+.close3:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* The Close Button */
+.close4 {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close4:hover,
+.close4:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.pop-header {
+    padding: 2px 16px;
+    background-color: #757575;
+    color: white;
+    text-align: center;
+}
+
+.pop-body {padding: 80px 16px;}
+
+.pop-body1 {padding: 40px 16px;}
+
+.pop-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropbtn{
+background-color: #3E4D53;
+
+}
+
+.dropdown{
+  position: fixed;
+  bottom: 86.5%;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  background-color: #0A0D12;
+  border-color: #0A0D12;
+  height: 40px;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #363135;
+
+}
+
+.agree{
+  position: fixed;
+   left: 35%;
+   bottom:38%;
+}
+.disagree{
+  position: fixed;
+   left: 53%;
+   bottom:38%;
+}
+
+.generateWal{
+
+  position: fixed;
+  right: 40%;
+}
+
+.main-list{
+
+
+}
+
+.list-item{
+background: #fff;
+padding: 20px;
+margin: 0px;
+border-radius: 10px;
+box-shadow: 0 0 40px #ccc;
+margin-bottom: 10px;
+
+}
+
+.list-item h3{
+  padding: 0px;
+  margin: 0px;
+  font-size: 16px;
+
+}
+
+.list-item p{
+  padding: 0px;
+  margin: 0px;
+  margin-top: 5px;
+  font-size: 14px;
+  color: #555;
+}
+
+.terms{
+  position: absolute;
+  top: 30%;
+}
+
+#checkInput {
+  background-image: url('../media/search.svg');
+  background-position: 0px 0px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 30px;
+
+}
+
+
+.check-item{
+background: #fff;
+padding: 20px;
+margin: 0px;
+border-radius: 10px;
+box-shadow: 0 0 40px black;
+margin-bottom: 10px;
+
+}
+
+.check-item h3{
+  padding: 0px;
+  margin: 0px;
+  font-size: 16px;
+
+}
+
+.check-item p{
+  padding: 0px;
+  margin: 0px;
+  margin-top: 5px;
+  font-size: 14px;
+  color: #555;
+}
+
+.genResult{
+  font-size: 15px;
+}
