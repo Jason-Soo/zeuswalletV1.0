@@ -1,5 +1,11 @@
 # zeuswalletV1.0
 
+![Zeus Wallet Preview](https://github.com/Jason-Soo/zeuswalletV1.0/blob/master/Media/Homepage.png)
+
+## Introduction
+Ethereum wallet desktop app with ERC20 token supported with custom gas fees of your choice built using Electron framework
+
+
 ## Installation
 
 ```sh
