@@ -69,7 +69,8 @@ function getUID(){
   var user = firebase.auth().currentUser;
   var uid = user.uid; //get the UID from the current user
   console.log(uid);
-  if(uid === "BAGa1MClgaZL7xOgLfs1FNGlDty2"){
+  //Please replace and use your firebase UID for this
+  if(uid === "YourUID"){
     alert("Welcome Admin!");
   $("#myBtn4").css('visibility', 'visible');
   }
