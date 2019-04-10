@@ -53,7 +53,7 @@ Just change the UID in dashboard.js and your firebase rules to
 ```
 
 ## To Change To Your Own Custom Token 
-Just change the token address and token_abi at dashboard.js
+Just change the TOKEN_ADDRESS and TOKEN_ABI at dashboard.js
 ```sh
 var TOKEN_ADDRESS = '0x2bdf756105c1a2f0a34001910e2895349fad8b0a'
 const TOKEN_ABI = [ { "constant": false, "inputs": [ { "name": "_spender", "type": "address" }, bla bla bla bla
