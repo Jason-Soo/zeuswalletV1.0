@@ -12,6 +12,20 @@ npm install
 npm start
 ```
 
+## Firebase API
+Get your Firebase API and paste it in renderer.js
+
+```sh
+var config = {
+  apiKey: "ReplaceThis",
+  authDomain: "ReplaceThis",
+  databaseURL: "ReplaceThis",
+  projectId: "ReplaceThis",
+  storageBucket: "ReplaceThis",
+  messagingSenderId: "ReplaceThis"
+};
+```
+
 ## Adding Admin features to your account
 Just change the UID in dashboard.js and your firebase rules to 
 
