@@ -1,12 +1,12 @@
 
 // Initialize Firebase
 var config = {
-  apiKey: "AIzaSyAVEWDjBxoO34B2bXEemxxnRpBE6Ztj8DQ",
-  authDomain: "zeuswalletdb.firebaseapp.com",
-  databaseURL: "https://zeuswalletdb.firebaseio.com",
-  projectId: "zeuswalletdb",
-  storageBucket: "zeuswalletdb.appspot.com",
-  messagingSenderId: "513020898097"
+  apiKey: "ReplaceThis",
+  authDomain: "ReplaceThis",
+  databaseURL: "ReplaceThis",
+  projectId: "ReplaceThis",
+  storageBucket: "ReplaceThis",
+  messagingSenderId: "ReplaceThis"
 };
 firebase.initializeApp(config);
 
