@@ -19,7 +19,7 @@ Just change the UID in dashboard.js and your firebase rules to
 {
   "rules": {
     ".read": true,
-    ".write": "auth.uid === 'YourUIDForAdminFeatures'"
+    ".write": "auth.uid === 'YourUID'"
   }
 }
 ```
