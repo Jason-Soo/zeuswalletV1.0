@@ -3,7 +3,7 @@
 ![Zeus Wallet Preview](https://github.com/Jason-Soo/zeuswalletV1.0/blob/master/Media/homepage.png)
 
 ## Introduction
-Ethereum wallet desktop app with ERC20 token supported with custom gas fees of your choice built using Electron framework
+Ethereum wallet desktop app with ERC20 token supported with custom gas fees of your choice built using Electron framework with database of verified charity organization that user can crosscheck and view
 
 
 ## Installation
